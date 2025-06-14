@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-temp-test"
+name = "softmax"
 version = "0.1.0"
 dependencies = [
  "num-traits",
