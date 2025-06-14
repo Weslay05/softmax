@@ -7,12 +7,20 @@ fn main() {
     // Constant used in softmax function
     println!("Variable for Softmax used : {constant}");
 
-    // Push Vector numbers
-    vec.push(1.3);
-    vec.push(5.1);
-    vec.push(0.7);
-    vec.push(1.1);
-    vec.push(5.0);
+    // Push val array to vector
+    let val:[f32; 4] = [1.3, 5.1, 0.7, 1.1];
+    // Push Loop
+    let mut i:usize = 0;
+    while i < val.len() {
+        vec.push(val[i]);
+        i += 1;
+    }
+    /* // Push all ints from 1-5
+    let mut i:f32 = 1.0;
+    while i <= 5.0 {
+        vec.push(i);
+        i += 1.0;
+    } */
 
     // Print Vector and Softmax Results
     let mut i:usize = 0;
