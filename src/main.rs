@@ -36,13 +36,17 @@ fn main() {
 
 // Softmax Function with a Custom Constant besides e
 fn softmax(index:usize, vector:Vec<f32>, constant:f32) -> f32 {
-    // Calculate the Entire Vector to a divisor for softmax
-    let mut divisor:f32 = 0.0;
+    // Create new Vector with all values after Constant^value
+    let mut constant_vec: Vec<f32> = Vec::new();
     let mut i:usize = 0;
     while i < vector.len() {
-        divisor += f32::powf(constant, vector[i]);
+        let res:f32 = f32::powf(constant, vector[i]);
+        constant_vec.push(res);
         i += 1;
     }
+
+    // Calculate the divisor for softmax
+    let divisor:f32 = constant_vec.iter().copied().sum();
 
     // Calculate and return the Final Probabilities
     let probability:f32 = f32::powf(constant, vector[index]) / divisor;
